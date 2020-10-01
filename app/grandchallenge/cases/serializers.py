@@ -4,7 +4,6 @@ from rest_framework.fields import CharField, SerializerMethodField
 from rest_framework.relations import HyperlinkedRelatedField, SlugRelatedField
 
 from grandchallenge.algorithms.models import AlgorithmImage
-from grandchallenge.api.swagger import swagger_schema_fields_for_charfield
 from grandchallenge.archives.models import Archive
 from grandchallenge.cases.models import (
     Image,
@@ -134,9 +133,6 @@ class RawImageUploadSessionSerializer(serializers.ModelSerializer):
             "reader_study",
             "api_url",
         ]
-        swagger_schema_fields = swagger_schema_fields_for_charfield(
-            status=model._meta.get_field("status")
-        )
 
 
 class RawImageFileSerializer(serializers.ModelSerializer):
